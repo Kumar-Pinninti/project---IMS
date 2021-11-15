@@ -1,0 +1,42 @@
+<div class="row pt-5">
+    <div class="middle col-md-6 col-lg-3">
+        <div class="menu">
+            <ul class="navbar-nav">
+            <li class="nav-item" class="item" id="profile">
+                <a href="#profile" class="nav-link disabled" class="btn"><i class="fa fa-user" aria-hidden="true"></i>PROFILE</a>
+                <div class="smenu">
+                    <a routerLink="studentdetails"><i class="fa fa-database" aria-hidden="true"></i>ATTENDANCE</a>
+                    <a routerLink="student-profile" class="fa fa-profile"><i class="fa fa-university" aria-hidden="true"></i>PROFILE</a>
+                </div>
+            </li>
+
+            <li class="nav-item" class="item" id="settings">
+                <a href="#settings" class="nav-link disabled" class="btn"><i class="fa fa-cogs" aria-hidden="true"></i>SETTINGS</a>
+                <div class="smenu">
+                    <a href="#" class="nav-link disabled"><i class="fa fa-file-text" aria-hidden="true"></i>EDIT PROFILE</a>
+                    <a href="#" class="nav-link disabled"><i class="fa fa-unlock-alt" aria-hidden="true"></i>CHANGE PASSWORD</a>
+                    <a href="#" class="nav-link disabled"><i class="fa fa-asterisk" aria-hidden="true"></i>ADD DETAILS</a>
+                </div>
+            </li>
+
+            <li class="nav-item" class="item" id="message">
+                <a href="#message" class="nav-link disabled" class="btn"><i class="fa fa-commenting" aria-hidden="true"></i>MESSAGES</a>
+                <div class="smenu">
+                    <a href="#" class="nav-link disabled"><i class="fa fa-paper-plane" aria-hidden="true"></i>NEW</a>
+                    <a href="#" class="nav-link disabled"><i class="fa fa-paper-plane" aria-hidden="true"></i>SENT</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#" class="btn">LOGOUT</a>
+            </li>
+        
+        
+        </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-9">
+        <router-outlet></router-outlet>
+    </div>
+</div>

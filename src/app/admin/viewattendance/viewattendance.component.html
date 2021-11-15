@@ -1,0 +1,55 @@
+
+<div class="container" class="mt-5">
+    <form #batch="ngForm" (ngSubmit)="searchbatch(batch.value)">
+        <div class="row">
+            <div class="col-sm-6">
+                    <div class="form-group">
+
+                        <select name="batches" id="" ngModel class="form-control">
+                            <option value="" disabled>Select Batch to get students Attendance</option>
+
+                            <option value="ALL">ALL BATCHES</option>
+                            
+                            <option value="{{std.batchName}}" *ngFor="let std of stdbatchdData">{{std.batchName}}</option> 
+                        </select>
+
+                    </div>          
+            </div>
+
+            <div class="col-sm-4">                    
+                <input id="date" type="date" name="date"  ngModel  class="form-control">          
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-md btn-info" type="submit">Search</button>
+            </div>
+        </div>        
+    </form>
+</div>
+
+
+<div class="container">
+    <table class="table table-bordered">
+
+        <thead class="bg-success">
+            <th>SNO</th>
+            <th>STDID</th>
+            <th>STDNAME</th>
+            <th>BATCH</th>
+            <th>ATTENDANCE</th>
+        </thead>
+
+        <tr *ngFor="let std of stdDataInBatch, let i=index"> 
+             <td>{{i+1}}</td>
+
+             <td>{{std.id}}</td>
+
+             <td>{{std.fname}} {{std.lname}}</td>
+
+             <td>{{std.batchno}}</td>
+            
+             <td>{{std.attendance}}</td>
+        </tr>
+
+    </table>
+</div>

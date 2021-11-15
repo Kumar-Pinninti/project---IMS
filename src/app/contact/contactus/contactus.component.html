@@ -1,0 +1,32 @@
+<div class="contactus">
+<div class="container-fluid">
+    <div class="form-box">
+      <div class="button-box">
+          <div id="button"></div>
+          <button type="button" class="toggle-btn" (click)="sub(x)">JOIN US</button>
+          <button type="button" class="toggle-btn" (click)="rep(y)">REPORT US</button>
+      </div>
+      
+
+      <form id="sub" class="input-group">
+            <h4 class="text-info">JOIN US FOR NEW LEARN TECHNOLOGIES</h4>
+            <input type="text" class="input-field" name="email" id="email" placeholder="ENTER EMAIL" required>
+            <div class="form-check pt-2 pb-5">
+                <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="">
+                 Send Alerts
+                </label>
+            </div>
+            <button class="btn" type="submit">JOIN US</button>
+      </form>
+
+      <form id="rep" class="input-group">
+            <h5 class="text-info">REPORT US IF U CANT ABLE TO LOGIN</h5>
+            <input type="text" class="input-field" name="email" id="email" placeholder="ENTER NAME" required>
+            <input type="text" class="input-field" name="email" id="email" placeholder="ENTER EMAIL" required>
+            <textarea class="input-field" rows="5" id="comment" placeholder="DESCRIPTION" required></textarea>
+            <button class="btn" type="submit">SEND REPORT</button>
+      </form>
+    </div>
+</div>
+</div>

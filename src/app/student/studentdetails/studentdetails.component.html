@@ -1,0 +1,72 @@
+
+
+<div class="container">
+    <div>
+        <h2 class="display-4 mb-4">Attendance Progress </h2>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-4">
+            <div class="progressbar">
+                <div class="second circle" [attr.data-percent]="totalAttenCount">
+                    <strong></strong>
+                    <span>Total<br>Attendance progress</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6">
+            <circle-progress
+            [percent]="presentPercent"
+            [radius]="100"
+            [outerStrokeWidth]="16"
+            [innerStrokeWidth]="8"
+            [outerStrokeColor]="'#78C000'"
+            [innerStrokeColor]="'#C7E596'"
+            [animation]="true"
+            [animationDuration]="300"
+          ></circle-progress>
+
+          <strong>Present Percentage</strong>
+          
+        </div>
+        
+        <div class="col-sm-6">
+            <circle-progress
+            [percent]="absentPercent"
+            [radius]="100"
+            [outerStrokeWidth]="16"
+            [innerStrokeWidth]="8"
+            [outerStrokeColor]="'#78C000'"
+            [innerStrokeColor]="'#C7E596'"
+            [animation]="true"
+            [animationDuration]="300"
+            ></circle-progress>
+
+            <strong>Absent Percentage</strong>
+          
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-sm-12">
+            <table class="table table-borderless">
+                <thead></thead>
+                <tr>
+                    <td>No Of Classes Conducted</td>
+                    <td>{{total}}</td>
+                </tr>
+                <tr>
+                    <td>No Of Classes Attended</td>
+                    <td>{{presentCount}}</td>
+                </tr>
+                <tr>
+                    <td>No Of classes Absent</td>
+                    <td>{{absentCount}}</td>
+
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>

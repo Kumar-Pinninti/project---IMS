@@ -1,0 +1,201 @@
+<div class="container pt-5">
+    <div class="row">
+        <!------------------------------------------------------ row start here ----------------------------------- -->
+        <div class="col-sm-6">
+            <h4>LIST OF STUDENTS IN {{this.batchName | uppercase}}</h4>
+        </div>
+
+    <div class="col-sm-6">
+    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#registration">ADD NEW STUDENT</button>
+    <div class="modal" id="registration">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>REGISTRATION FORM</h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form #reg="ngForm" (ngSubmit)="registration(reg.value);reg.reset()">
+                        <!-- <div class="form-group">
+                            <label for="batch">BATCH</label>
+                            <input type="text" class="form-control" id="batch" type="text" name="batch" [(ngModel)]="batchName">
+                        </div> -->
+                        <!-- <input [disabled]="true" class="form-control" id="batch" type="text" name="batch" [value]=batchName> -->
+                        <div class="form-group">
+                            <label for="fn">FIRST NAME</label>
+                            <input type="text" class="form-control" id="fn" name="fname" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="ln">LAST NAME</label>
+                            <input type="text" class="form-control" id="ln" name="lname" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">ENTER EMAIL</label>
+                            <input type="email" class="form-control" id="email" name="email" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="num">ENTER NUMBER</label>
+                            <input type="tel" class="form-control" id="num" name="number" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">ENTER AGE</label>
+                            <input type="number" class="form-control" id="age" name="age" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="id">ENTER STUDENT ID</label>
+                            <input type="text" class="form-control" id="id" name="id" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass">ENTER PASSWORD</label>
+                            <input type="password" class="form-control" id="pass" name="password" ngModel>
+                        </div>
+                        <div class="form-check-inline">GENDER
+                            <br>
+                            <label for="male" class="form-check-label">
+                                <input type="radio" name="gender" id="male" value="male" ngModel>
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label for="female" class="form-check-label">
+                                <input type="radio" name="gender" id="female" value="female" ngModel>
+                                Female
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">ENTER ADDRESS:</label>
+                            <textarea name="address" id="address" class="form-control" rows="5" ngModel></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">SELECT COURSE</label>
+                            <select name="course" id="course" class="form-control" ngModel>
+                                <option value="disabled">---select course---</option>
+                                <option value="mean">MEAN STACK</option>
+                                <option value="java">JAVA-PHP</option>
+                                <option value="app">APP DESIGN</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-success" type="submit">REGISTER</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<!----------------------------------------- row ends here ------------------------------------------------------>
+<!------------------------------------ table to display student data start here ------------------------------ -->
+
+<div class="row pt-3">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <th>BATCH NAME</th>
+            <th>NAME </th>
+            <th>AGE</th>
+            <th>STUDENT ID</th>
+            <th>EMAIL</th>
+            <th>MOBILE</th>
+        </thead>
+        <tr *ngFor="let studObj of studentArray">
+            <td>{{studObj.batchName}}</td>
+            <td>{{studObj.fname}} {{studObj.lname}}</td>
+            <td>{{studObj.age}}</td>
+            <td>{{studObj.id}}</td>
+            <td>{{studObj.email}}</td>
+            <td>{{studObj.number}}</td>
+            <td>
+                <button class="btn btn-info" data-toggle="modal" data-target="#editModal" (click)="editStd(std)"><i class="fas fa-edit"></i></button>
+            </td>
+            <td>
+                <button class="btn btn-warning" type="button" (click)="deleteStud(studObj)"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!------------------------------------ table to display student data end here ------------------------------ -->
+
+</div>
+
+<!-- container ends -->
+
+
+<!-- edit the student details -->
+
+<div class="modal" id="editModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">EDIT STUDENT DETAILS</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form #editstd="ngForm" (ngSubmit)="editdetails(editstd.value);reg.reset()">
+                    <!-- <div class="form-group">
+                        <label for="batch">BATCH</label>
+                        <input type="text" class="form-control" id="batch" type="text" name="batch" [(ngModel)]="batchName">
+                    </div> -->
+                    <!-- <input [disabled]="true" class="form-control" id="batch" type="text" name="batch" [value]=batchName> -->
+                    <div class="form-group">
+                        <label for="fn">FIRST NAME</label>
+                        <input type="text" class="form-control" id="fn" name="fname" [(ngModel)]="this.fname" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="ln">LAST NAME</label>
+                        <input type="text" class="form-control" id="ln" name="lname" [(ngModel)]="lname"  ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ENTER EMAIL</label>
+                        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="num">ENTER NUMBER</label>
+                        <input type="tel" class="form-control" id="num" name="number" [(ngModel)]="number" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">ENTER AGE</label>
+                        <input type="number" class="form-control" id="age" name="age" [(ngModel)]="age" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="id">ENTER STUDENT ID</label>
+                        <input type="text" class="form-control" id="id" name="id" [(ngModel)]="id" ngModel>
+                    </div>
+                    <div class="form-check-inline">GENDER
+                        <br>
+                        <label for="male" class="form-check-label">
+                            <input type="radio" name="gender" id="male" value="male" [(ngModel)]="gender" ngModel>
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label for="female" class="form-check-label">
+                            <input type="radio" name="gender" id="female" value="female" [(ngModel)]="gender" ngModel>
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="course">SELECT COURSE</label>
+                        <select name="course" id="course" class="form-control" [(ngModel)]="course" ngModel>
+                            <option value="disabled">---select course---</option>
+                            <option value="mean">MEAN STACK</option>
+                            <option value="java">JAVA-PHP</option>
+                            <option value="app">APP DESIGN</option>
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-lg" style="background-color: dodgerblue;" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- edit the student details ends -->
+

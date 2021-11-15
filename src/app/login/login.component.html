@@ -1,0 +1,50 @@
+
+<div class="login">
+<div class="container-fluid">
+    <br>
+    <br>
+    <div class="row pt-5">
+        <div class="col-sm-2 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>For admin module:</h3>
+                    <p>username: admin-kumar</p>
+                    <p>password: Admin</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+        <div class="box">
+        <h2>login</h2>
+        <form #ref="ngForm" (ngSubmit)="login(ref.value)">
+            <div class="form-group input-box">
+                <input type="text"  id="eun" name="username" required ngModel>
+                <label for="eun">ENTER USERNAME</label>
+            </div>
+            <div class=" form-group input-box">
+                <input type="password"  id="eup" name="password" required ngModel>
+                <label for="eup">ENTER PASSWORD</label>
+            </div>
+            <div class="text-center">
+               <button type="submit" class="btn btn-success">LOGIN</button>
+            </div>
+        </form>
+        </div>        
+        </div>
+
+        <div class="col-sm-2 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>For student module:</h3>
+                    <p>username: std00119002</p>
+                    <p>password: std00119002</p>
+
+                    <p>username: std00119001</p>
+                    <p>password: std00119001</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

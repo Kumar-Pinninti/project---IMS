@@ -1,0 +1,117 @@
+<!-- ---------------------------------- start of a row to add new batch button --------------------- -->
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-sm-5">
+            <h1>WELCOME ADMIN</h1>
+        </div>
+        <div class="col-sm-7">
+            <!-- button for new batch -->
+            <button class="btn btn-primary btn-hover" type="button" data-toggle="modal" data-target="#batchModal">
+                ADD NEW BATCH
+            </button>
+            <div class="modal" id="batchModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            STUDENTS REGISTERATION FORM
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- new batch form-->
+                            <form #ref1="ngForm" (ngSubmit)="batchMethod(ref1.value)">
+                                <div class="form-group">
+                                    <label for="bn">ENTER BATCH NAME</label>
+                                    <input type="text" class="form-control" name="batchName" id="bn" placeholder="BATCH NAME" ngModel>
+                                </div>
+                                <h3>DURATION</h3>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="fd">FROM:</label>
+                                            <input type="date" class="form-control" name="from" id="fd" ngModel>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="td">TO:</label>
+                                            <input type="date" class="form-control" name="to" id="td" ngModel>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-success" type="submit">SUBMIT</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------------------------------- end of a row with add new batch button --------------------------------------------->
+
+
+<!-- ------------------------------- list of batches in form of alerts start here ---------------------------------------------- -->
+
+
+
+<div class="alert alert-success alert-dismissible row" *ngFor="let batchObj of batchesArray">
+    <div class="col-sm-2">
+        <button class="btn-link" type="button" (click)="studentCom(batchObj.batchName)">{{batchObj.batchName}}</button>
+    </div>
+    <div class="col-sm-3">
+        <strong>FROM:</strong>{{batchObj.from}}
+    </div>
+    <div class="col-sm-3">
+      <strong>TO:</strong>{{batchObj.to}}
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-danger" type="button" (click)="editBatch(batchObj)" data-toggle="modal" data-target="#updateBatch">EDIT</button>
+        <div class="modal" id="updateBatch">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                 EDIT BATCH  DURATION DETAILS HERE
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form #ref2="ngForm" (ngSubmit)="updateBatchMethod(ref2.value)">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="fd">FROM:</label>
+                                                <input type="date" class="form-control" name="from" id="fd" [(ngModel)]=this.from>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="td">TO:</label>
+                                                <input type="date" class="form-control" name="to" id="td" [(ngModel)]=this.to>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn btn-success" type="submit">SAVE</button>
+                                    </div>
+                                </form>
+                        </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-warning" type="button" (click)="delete(batchObj)">DELETE</button>
+    </div>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+
+<!-- ng config -g cli.warnings.versionMismatch false" -->
+
+
+
+<!-- ------------------------------- list of batches in form of alerts end here ---------------------------------------------- -->
+
+
+
